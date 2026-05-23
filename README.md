@@ -26,20 +26,16 @@ npm start
 
 ### 3. Sideload the add-in in Outlook
 
-#### Outlook on the Web (recommended for testing)
-1. Open [Outlook Web](https://outlook.live.com) or your org's OWA
-2. Open any email → click the **"…"** (More actions) menu → **Get Add-ins**
-3. Go to **My add-ins** → **Add a custom add-in** → **Add from file…**
+#### Outlook on the Web 
+1. Open [Outlook Web](https://aka.ms/olksideload) or your org's OWA
+2. Select My add-ins.
+3. In the Custom Addin section, select Add a custom add-in, then choose Add from file.
 4. Upload `manifest.xml`
-
-#### Outlook Desktop (Windows)
-1. Open Outlook → **File** → **Manage Add-ins** (opens OWA)
-2. Follow the same steps as above
 
 ### 4. Use the add-in
 1. Open any email
 2. Click **Extract Events** in the ribbon (or from the "…" menu on web)
-3. Enter your OpenAI API key and click **Save** (stored in localStorage, never sent anywhere except OpenAI)
+3. Enter your Gemini API key and click **Save** (stored in localStorage, never sent anywhere except Gemini)
 4. Click **Extract Events from Email**
 5. Review the detected events and click **Add to Calendar** on any you want
 
@@ -50,7 +46,7 @@ outlook-calendar-extension/
 ├── manifest.xml        # Add-in registration for Office
 ├── taskpane.html       # Task pane UI
 ├── taskpane.css        # Styles
-├── taskpane.js         # Logic: reads email, calls OpenAI, renders events
+├── taskpane.js         # Logic: reads email, calls Gemini, renders events
 ├── commands.html       # Required stub for ribbon button
 ├── server.js           # Local HTTPS server
 ├── scripts/
@@ -62,6 +58,6 @@ outlook-calendar-extension/
 
 ## Notes
 
-- Your OpenAI API key is stored only in your browser's `localStorage` and is sent directly from your browser to `api.openai.com`. It is never stored on any server.
+- Your Gemini API key is stored only in your browser's `localStorage` and is sent directly from your browser to Google Gemini. It is never stored on any server.
 - The add-in reads email body text only — no attachments.
-- `gpt-4o` is used by default. Change the `model` field in `taskpane.js` if you prefer a different model.
+- Change the `model` field in `taskpane.js` if you prefer a different model.
