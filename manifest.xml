@@ -11,12 +11,12 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Calendar Event Extractor" />
   <Description DefaultValue="Extracts calendar events from emails using AI" />
-  <IconUrl DefaultValue="https://flipper-slipper.github.io/outlook-mail-event-parser/assets/icon-64.png" />
-  <HighResolutionIconUrl DefaultValue="https://flipper-slipper.github.io/outlook-mail-event-parser/assets/icon-128.png" />
-  <SupportUrl DefaultValue="https://flipper-slipper.github.io/outlook-mail-event-parser" />
+  <IconUrl DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/assets/icon-64.png" />
+  <HighResolutionIconUrl DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/assets/icon-128.png" />
+  <SupportUrl DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser" />
 
   <AppDomains>
-    <AppDomain>https://flipper-slipper.github.io/outlook-mail-event-parser</AppDomain>
+    <AppDomain>https://davidbarsoum.com/outlook-mail-event-parser</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -32,7 +32,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://flipper-slipper.github.io/outlook-mail-event-parser/taskpane.html" />
+        <SourceLocation DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/taskpane.html" />
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -84,13 +84,13 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://flipper-slipper.github.io/outlook-mail-event-parser/assets/icon-16.png" />
-        <bt:Image id="Icon.32x32" DefaultValue="https://flipper-slipper.github.io/outlook-mail-event-parser/assets/icon-32.png" />
-        <bt:Image id="Icon.80x80" DefaultValue="https://flipper-slipper.github.io/outlook-mail-event-parser/assets/icon-80.png" />
+        <bt:Image id="Icon.16x16" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/assets/icon-16.png" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/assets/icon-32.png" />
+        <bt:Image id="Icon.80x80" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://flipper-slipper.github.io/outlook-mail-event-parser/commands.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://flipper-slipper.github.io/outlook-mail-event-parser/taskpane.html" />
+        <bt:Url id="Commands.Url" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/commands.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/taskpane.html" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Calendar Events" />
