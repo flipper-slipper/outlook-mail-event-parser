@@ -1,0 +1,12 @@
+{
+  "name": "outlook-calendar-extension",
+  "version": "1.0.0",
+  "description": "Outlook add-in that extracts calendar events from emails using OpenAI",
+  "scripts": {
+    "start": "node server.js",
+    "setup-certs": "npx office-addin-dev-certs install --days 365"
+  },
+  "devDependencies": {
+    "office-addin-dev-certs": "^2.0.9"
+  }
+}

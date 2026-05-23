@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  color: #201f1e;
+  background: #faf9f8;
+  padding: 16px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-icon {
+  width: 28px;
+  height: 28px;
+  color: #0078d4;
+  flex-shrink: 0;
+}
+
+header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0078d4;
+}
+
+/* Config section */
+#config-section {
+  background: #fff;
+  border: 1px solid #edebe9;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#config-section label {
+  font-weight: 600;
+  font-size: 12px;
+  color: #605e5c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #c8c6c4;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input-row input:focus {
+  border-color: #0078d4;
+}
+
+.status-text {
+  font-size: 12px;
+  color: #107c10;
+  min-height: 16px;
+}
+
+.status-text.error {
+  color: #a4262c;
+}
+
+/* Buttons */
+button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#save-key-btn {
+  background: #edebe9;
+  color: #201f1e;
+}
+
+#save-key-btn:hover:not(:disabled) {
+  background: #d2d0ce;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 10px;
+  background: #0078d4;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: #106ebe;
+}
+
+/* Loading */
+#loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 0;
+  color: #605e5c;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #edebe9;
+  border-top-color: #0078d4;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error */
+.error-banner {
+  background: #fde7e9;
+  border: 1px solid #f1707b;
+  border-radius: 4px;
+  padding: 10px 12px;
+  color: #a4262c;
+  font-size: 13px;
+}
+
+/* Results */
+#results-section h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #605e5c;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+#events-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Event card */
+.event-card {
+  background: #fff;
+  border: 1px solid #edebe9;
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.event-card.added {
+  border-color: #107c10;
+  background: #f1faf1;
+}
+
+.event-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #201f1e;
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.event-meta-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12px;
+  color: #605e5c;
+}
+
+.event-meta-row .label {
+  font-weight: 600;
+  min-width: 70px;
+  color: #201f1e;
+}
+
+.event-description {
+  font-size: 13px;
+  color: #605e5c;
+  line-height: 1.5;
+  border-top: 1px solid #f3f2f1;
+  padding-top: 8px;
+}
+
+.event-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.add-btn {
+  flex: 1;
+  background: #0078d4;
+  color: #fff;
+  font-weight: 600;
+}
+
+.add-btn:hover:not(:disabled) {
+  background: #106ebe;
+}
+
+.added-label {
+  flex: 1;
+  text-align: center;
+  padding: 6px;
+  background: #dff6dd;
+  color: #107c10;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.no-muted { display: none; }
+
+.muted {
+  color: #605e5c;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.hidden {
+  display: none !important;
+}
