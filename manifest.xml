@@ -6,7 +6,7 @@
   xsi:type="MailApp">
 
   <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
-  <Version>1.0.0.0</Version>
+  <Version>1.0.1.0</Version>
   <ProviderName>Calendar Event Extractor</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Calendar Event Extractor" />
@@ -32,7 +32,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/taskpane.html" />
+        <SourceLocation DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/taskpane.html?v=2" />
         <RequestedHeight>450</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -89,8 +89,8 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Commands.Url" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/commands.html" />
-        <bt:Url id="Taskpane.Url" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/taskpane.html" />
+        <bt:Url id="Commands.Url" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/commands.html?v=2" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://davidbarsoum.com/outlook-mail-event-parser/taskpane.html?v=2" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Calendar Events" />
