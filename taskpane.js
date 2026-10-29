@@ -1,7 +1,6 @@
 /* global Office */
 
 const STORAGE_KEY = "gemini_api_key";
-const BUILD = "2";
 
 // ── DOM refs ──────────────────────────────────────────────────────────────────
 const apiKeyInput    = document.getElementById("api-key");
@@ -15,8 +14,6 @@ const resultsSection = document.getElementById("results-section");
 const resultsCount   = document.getElementById("results-count");
 const eventsList     = document.getElementById("events-list");
 const noEvents       = document.getElementById("no-events");
-
-document.getElementById("build-label").textContent = `Build ${BUILD}`;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 Office.onReady(() => {
@@ -246,12 +243,12 @@ function addToCalendar(ev, card) {
   // Try Office JS newAppointment first (requires Mailbox 1.1)
   if (Office.context.mailbox.displayNewAppointmentForm) {
     Office.context.mailbox.displayNewAppointmentForm(appointmentDetails);
-    markAdded(card, startDt);
+    markAdded(card);
   } else {
     // Fallback: open Outlook web new event URL
     const url = buildOutlookWebUrl(ev, startDt, endDt, isAllDay);
     window.open(url, "_blank");
-    markAdded(card, startDt);
+    markAdded(card);
   }
 }
 
@@ -326,13 +323,10 @@ function formatDateOnly(dt) {
   return `${y}-${m}-${d}`;
 }
 
-function markAdded(card, startDt) {
+function markAdded(card) {
   card.classList.add("added");
   const actionsDiv = card.querySelector(".event-actions");
   actionsDiv.innerHTML = `<div class="added-label">Added to Calendar</div>`;
-  // Show the start we sent, to tell our date bugs apart from Outlook's
-  actionsDiv.insertAdjacentHTML("beforeend",
-    `<p class="muted">Sent start: ${escHtml(startDt.toString())}</p>`);
 }
 
 // ── UI helpers ────────────────────────────────────────────────────────────────
