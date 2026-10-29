@@ -229,6 +229,8 @@ function addToCalendar(ev, card) {
   } else {
     startDt = buildDateTime(ev.date, ev.startTime);
     endDt   = ev.endTime ? buildDateTime(ev.date, ev.endTime) : addOneHour(startDt);
+    // Events past midnight (e.g. 10 PM – 1 AM) end on the next day
+    if (endDt <= startDt) endDt.setDate(endDt.getDate() + 1);
   }
 
   const appointmentDetails = {
@@ -240,15 +242,19 @@ function addToCalendar(ev, card) {
     requiredAttendees: [],
   };
 
-  // Try Office JS newAppointment first (requires Mailbox 1.1)
-  if (Office.context.mailbox.displayNewAppointmentForm) {
-    Office.context.mailbox.displayNewAppointmentForm(appointmentDetails);
-    markAdded(card);
-  } else {
-    // Fallback: open Outlook web new event URL
-    const url = buildOutlookWebUrl(ev, startDt, endDt, isAllDay);
-    window.open(url, "_blank");
-    markAdded(card);
+  try {
+    // Try Office JS newAppointment first (requires Mailbox 1.1)
+    if (Office.context.mailbox.displayNewAppointmentForm) {
+      Office.context.mailbox.displayNewAppointmentForm(appointmentDetails);
+      markAdded(card);
+    } else {
+      // Fallback: open Outlook web new event URL
+      const url = buildOutlookWebUrl(ev, startDt, endDt, isAllDay);
+      window.open(url, "_blank");
+      markAdded(card);
+    }
+  } catch (err) {
+    showError(`Couldn't add event: ${err.message || err}`);
   }
 }
 
