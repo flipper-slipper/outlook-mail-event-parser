@@ -264,3 +264,10 @@ button:disabled {
 .hidden {
   display: none !important;
 }
+
+#version-label {
+  margin-top: 16px;
+  font-size: 10px;
+  color: #a19f9d;
+  text-align: center;
+}

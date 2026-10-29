@@ -1,6 +1,8 @@
 /* global Office */
 
 const STORAGE_KEY = "gemini_api_key";
+// Keep in sync with the ?v= on taskpane.js in taskpane.html
+const VERSION = "5";
 
 // ── DOM refs ──────────────────────────────────────────────────────────────────
 const apiKeyInput    = document.getElementById("api-key");
@@ -14,6 +16,8 @@ const resultsSection = document.getElementById("results-section");
 const resultsCount   = document.getElementById("results-count");
 const eventsList     = document.getElementById("events-list");
 const noEvents       = document.getElementById("no-events");
+
+document.getElementById("version-label").textContent = `v${VERSION}`;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 Office.onReady(() => {
