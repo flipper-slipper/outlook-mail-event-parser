@@ -252,9 +252,19 @@ function addToCalendar(ev, card) {
   }
 }
 
+/**
+ * Parse a date string as local time. `new Date("YYYY-MM-DD")` is treated as
+ * UTC midnight, which lands on the previous day in timezones west of UTC.
+ */
+function parseLocalDate(dateStr) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(dateStr).trim());
+  if (m) return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+  return new Date(dateStr);
+}
+
 /** Parse date string to midnight local time (for all-day events). */
 function buildDateOnly(dateStr) {
-  const base = new Date(dateStr);
+  const base = parseLocalDate(dateStr);
   if (isNaN(base.getTime())) {
     // Relative/unrecognised date — use today
     const today = new Date();
@@ -267,7 +277,7 @@ function buildDateOnly(dateStr) {
 
 function buildDateTime(dateStr, timeStr) {
   if (!dateStr) return new Date();
-  const base = new Date(dateStr);
+  const base = parseLocalDate(dateStr);
   if (isNaN(base.getTime())) {
     const fallback = new Date();
     if (timeStr) applyTime(fallback, timeStr);
