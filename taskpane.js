@@ -2,7 +2,7 @@
 
 const STORAGE_KEY = "gemini_api_key";
 // Keep in sync with the ?v= on taskpane.js in taskpane.html
-const VERSION = "5";
+const VERSION = "6";
 
 // ── DOM refs ──────────────────────────────────────────────────────────────────
 const apiKeyInput    = document.getElementById("api-key");
@@ -84,6 +84,8 @@ function getEmailText() {
     // Collect subject + sender for context
     const subject = item.subject || "";
     const sender  = item.from ? `${item.from.displayName} <${item.from.emailAddress}>` : "";
+    // Sent date lets the model fill in missing years and resolve "this Friday"
+    const sent    = (item.dateTimeCreated || new Date()).toDateString();
 
     item.body.getAsync(Office.CoercionType.Text, (result) => {
       if (result.status === Office.AsyncResultStatus.Failed) {
@@ -91,7 +93,7 @@ function getEmailText() {
         return;
       }
       const body = result.value || "";
-      resolve(`Subject: ${subject}\nFrom: ${sender}\n\n${body}`);
+      resolve(`Subject: ${subject}\nFrom: ${sender}\nSent: ${sent}\n\n${body}`);
     });
   });
 }
@@ -108,6 +110,9 @@ For each event return a JSON object with these fields:
 - location: physical or virtual location, or null
 - description: 1-3 sentence summary of what the event is about
 - attendees: array of names/emails if mentioned, otherwise []
+
+The email's "Sent" date is the reference point. When a date has no year, or is relative
+("this Friday", "tomorrow"), resolve it to the nearest matching date on or after the Sent date.
 
 Return a JSON array of events. If there are no events, return an empty array [].
 Do not include any text outside the JSON array.`;
